@@ -21,6 +21,31 @@ a {
 a:hover {
     color: #217ee7;
 }
+nav {
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    justify-content: end;
+    display: inline;
+}
+header {
+    padding-right: 30px;
+    text-align: right;
+}
+.nav-bar {
+    top: 0;
+    right: 0;
+}
+
+.nav-item {
+    margin: 10px;
+    color: black;
+    text-decoration: underline
+}
+
+.nav-item:hover {
+    color: grey;
+}
 
 #content {
     margin: auto;
