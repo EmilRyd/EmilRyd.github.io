@@ -48,12 +48,13 @@ header {
     color: grey;
 }
 
-.image-text {
+#image-text {
     text-align: center;
     padding: 0;
     margin: 0;
 }
-#content {
+
+.content {
     margin: auto;
     text-align: left;
     max-width: 520px;
