@@ -1,6 +1,6 @@
 personal website
 
-based on the [minimal-academic-website]([url](https://github.com/timothygebhard/minimal-academic-website?tab=BSD-3-Clause-1-ov-file)) repo, which is under the bsd-3 license:
+based on the [minimal-academic-website](https://github.com/timothygebhard/minimal-academic-website?tab=BSD-3-Clause-1-ov-file) repo, which is under the bsd-3 license:
 
 license notice: 
 BSD 3-Clause License
