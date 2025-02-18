@@ -64,7 +64,10 @@ header {
 
 .avatar-div {
     text-align: center;
+    padding: 10;
+    margin-top: 20px;
 }
+
 .avatar {
     border-radius: 50%;
     width: 150px;
@@ -72,6 +75,16 @@ header {
 
 #comic {
     width: 170px;
+}
+
+.blog_link {
+    color: black;
+    text-decoration: underline
+    
+}
+
+.blog_link:hover {
+    color: grey;
 }
 
 .icons {
