@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="refresh" content="0; url=your-actual-cv.pdf">
+</head>
+<body>
+    <!-- Optional message for users who don't get redirected automatically -->
+    <p>If you are not redirected automatically, <a href="CV.pdf">click here</a>.</p>
+</body>
+</html>
