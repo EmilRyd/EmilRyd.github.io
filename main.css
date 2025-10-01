@@ -111,3 +111,30 @@ header {
 .icons a:hover {
     color: #1565c0;
 }
+
+.webring {
+    text-align: center;
+    margin: 2em auto 1em;
+    font-size: 16px;
+    color: #666;
+}
+
+.webring-link {
+    color: black;
+    text-decoration: underline;
+    margin: 0 0.3em;
+}
+
+.webring-link:hover {
+    color: #1565c0;
+}
+
+.webring-separator {
+    margin: 0 0.3em;
+    color: #666;
+}
+
+.webring-name {
+    font-weight: 600;
+    margin: 0 0.3em;
+}
