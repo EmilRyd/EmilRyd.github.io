@@ -22,6 +22,18 @@ a {
 a:hover {
     color: #217ee7;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 2.2em;
+}
+
+h2 {
+    font-size: 1.6em;
+}
 nav {
     font-size: 16px;
     text-decoration: none;
@@ -137,4 +149,98 @@ header {
 .webring-name {
     font-weight: 600;
     margin: 0 0.3em;
+}
+
+/* Margin images for blog posts */
+.main-text {
+    position: relative;
+}
+
+.margin-figure {
+    float: right;
+    clear: right;
+    margin-right: -300px;
+    width: 250px;
+    margin-top: 0;
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+
+.margin-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.margin-figure figcaption {
+    font-size: 14px;
+    color: #666;
+    margin-top: 0.5em;
+    line-height: 1.4;
+}
+
+/* For left-side margin images */
+.margin-figure-left {
+    float: left;
+    clear: left;
+    margin-left: -300px;
+    width: 250px;
+    margin-top: 0;
+    margin-bottom: 1em;
+    margin-right: 1em;
+}
+
+.margin-figure-left img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.margin-figure-left figcaption {
+    font-size: 14px;
+    color: #666;
+    margin-top: 0.5em;
+    line-height: 1.4;
+}
+
+/* Make sure content area has enough space for margin notes */
+@media (min-width: 900px) {
+    .content {
+        max-width: 650px;
+    }
+}
+
+/* Centered images in text */
+.center-figure {
+    margin: 1.5em auto;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.center-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.center-figure figcaption {
+    font-size: 14px;
+    color: #666;
+    margin-top: 0.5em;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* Hide margin figures on small screens */
+@media (max-width: 899px) {
+    .margin-figure,
+    .margin-figure-left {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 400px;
+    }
 }
