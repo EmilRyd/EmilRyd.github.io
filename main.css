@@ -99,6 +99,17 @@ header {
     color: grey;
 }
 
+.blog-post {
+    margin-bottom: 1.5em;
+}
+
+.blog-date {
+    font-size: 14px;
+    color: #666;
+    margin-top: 0.3em;
+    margin-bottom: 0;
+}
+
 .icons {
     list-style-type: none;
     font-size: xx-large;
