@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+  <head>
+    <base target="_blank">
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Define title -->
+    <title>Emil Ryd - Blog</title>
+
+    <!-- Include favicon. Use, e.g., https://favicon.io/ -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#128564</text></svg>">
+
+    <!-- Include style sheets -->
+    <link rel="stylesheet" href="../../main.css" />
+
+    <!-- Fonts from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600&display=swap" rel="stylesheet" />
+
+    <!-- Load FontAwesome (for icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+    />
+
+    <!-- Load Academicons (for more icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.2/css/academicons.min.css"
+      integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg=="
+      crossorigin="anonymous"
+    />
+
+    <!-- MathJax for LaTeX equations -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  </head>
+
+  <body>
+    
+    
+      <section class="content", style="font-size: 16px;">
+        <header><nav class="nav-bar">
+            <a href="/" class="nav-item" target="_self">home</a>
+        <a href="/physics" class="nav-item" target="_self">physics</a>
+        <a href="/blog" class="nav-item" target="_self">blog</a>
+        </nav>
+      </header>
+      
+        <div class="main-text">
+          <h1>Why does L = T - V?</h1>
+          <p>Dec 16, 2025</p>
+          
+          <p><em>This post assumes knowledge of introductory <a href="https://en.wikipedia.org/wiki/Lagrangian_mechanics#Lagrangian">Lagrangian mechanics</a>, specifically knowledge of Hamilton's principle of least action and the <a href="https://en.wikipedia.org/wiki/Euler%E2%80%93Lagrange_equation">Euler-Lagrange equations</a> of motion. <a href="https://www.youtube.com/watch?v=Q10_srZ-pbs">This video</a> from Veritasium should roughly get you up to speed or refresh your memory, and is a fun watch either way.</em></p>
+
+          <p>Upon learning Lagrangian mechanics for the first time, the almost universally asked question is: <em>Why does it look this way?</em> More precisely, <em>why is the Lagrangian equal to \(T - V\)?</em></p>
+
+          <p>I think answering questions like these in physics is extremely useful, and unfortunately, they are far too often waved away by teachers and professors with a "because the Universe says so" comment. Answering questions like <em>Why is the Lagangian equal to \(T - V\)?</em> and understanding the assumptions on which it rests helps a lot with building an understanding of why we have the physical laws that we do, which seems like an important step in figuring out what the undiscovered laws will be. And once we have done so, we can pull the thread on each of the assumptions implicit in our laws, and inspect the bifurcation implicit therein—the second, hidden Universe, the road not taken.</p>
+
+          <p>In this post, I will attempt to convey some intuition for why the Lagrangian looks the way it does, while actually rigorously showing from some pretty minimal assumptions that the Lagrangian is (almost) forced to be, precisely, <em>\(T - V\)</em>. The proof I will show is a more detailed version of a much briefer version from <a href="https://en.wikipedia.org/wiki/Course_of_Theoretical_Physics#Volume_1"><em>Landau &amp; Lifschitz</em></a><em>.</em> I hope that you will leave this post with a deeper appreciation of why the Lagrangian looks the way it does.</p>
+
+          <h2>Our starting assumptions</h2>
+
+          <p>Our argument will proceed by relying heavily on symmetry. Here are our axioms for the day:</p>
+
+          <ol>
+            <li>The laws of motion are second-order in time</li>
+            <li>Free space is homogenous in space and time</li>
+            <li>The laws of physics are the same in every inertial reference frame (<a href="https://en.wikipedia.org/wiki/Galilean_invariance">Galilean relativity</a>)</li>
+          </ol>
+
+          <p>Let's explain why these are reasonable.</p>
+
+          <p>Assumption I says that the laws of motion are second-order in time. In other words, when you can place an object anywhere in time, space, and with any given starting velocity. But once you've done that, you have no more degrees of freedom. Everything else from there is determined by the laws of physics. If two identical objects have the same position and velocity at a given time, then they will follow the same path from that point onwards. Another way of stating this is that the laws of physics will give you an acceleration as a function of position, velocity, and time. Now, this assumption doesn't seem like it must obviously be true. Why couldn't acceleration also be a free parameter, and the laws of motion be third-order in time? Or why not first-order in time<sup id="fnref1"><a href="#fn1">1</a></sup>? While there aren't any explicit constraints on different order dynamics, it can be shown that universes with higher than second-order dynamics would be unstable. And, regarding universes with first order dynamics, here is a speculation from me: in a universe with first-order dynamics, most things are just sitting still most of the time (that would be the equilibrium state, similar to how moving with constant velocity is the equilibrium state in a second-order universe), and not much would happen. Hence, I think there is an anthropic argument for why we don't find ourselves in such a universe.</p>
+
+          <p>Nevertheless, regardless of whether we think this is the only natural way for a universe to be, it is easy enough for us to indeed confirm that the universe we are in is second-order. We know for a fact that we can launch tennis balls from both different positions and with different velocities, and we observe that when they have the same position and velocity at the start, they always follow the same trajectories. So, at the very least, this is what our universe looks like.</p>
+
+          <p>So what about II? By "homogenous" in space and time, I mean that in free (for some reason, physicists like calling empty space "free") space, nothing changes if I move to the right, left, up, down, nor if I let time pass or go back to an earlier time stamp. Empty space looks exactly the same everywhere. While we certainly could imagine a Universe that has an innate preference for some absolute direction, say 25 degrees North, and always accelerates objects in that direction, that would be a mildly strange Universe. It seems natural to assume no privileged direction in space, nor any privileged point in time.</p>
+
+          <p>By III, I mean that the laws of physics are the same according to every observer that moves with constant velocity to each other (these observers are called "inertial", to signify that they are not accelerating with respect to each other). This assumption isn't as obviously natural as the first or second one. It certainly doesn't roll off the tongue in the same way. However, it actually follows from our first assumption, which says that the laws of physics give you the acceleration of an object (or set of objects); nothing more, nothing less. Now, an observer which moves with a constant velocity, or with a constant position offset with respect to some other observer, will always observe the same acceleration of every point in space as that other observer. The fact that they're moving with a constant velocity doesn't make any difference for their measurement of acceleration. This is just a mathematical statement (and can be proven as such), without invoking any notion of Galilean relativity. It's the first assumption we made (that the laws of physics are what gives us acceleration) that gives us the missing link to tie this to Galilean relativity, our third assumption. Because two observer moving with constant velocity with respect to each other will measure the same acceleration everywhere, it means that the laws of physics will appear the same to both of them, and there wouldn't be any physical experiment either of them could perform to determine some <em>absolute</em> velocity they were moving with. And so, the third assumption really follows from the first.</p>
+
+          <p>Finally, while I won't elevate it to the status of an assumption, I will assume that we have already derived, or discovered (although, hopefully the former) Hamilton's principle of least action, and thus the Euler-Lagrange equations of motion. Without these, there would be no meaningful way of talking about the Lagrangian to begin with. This is a very sad place to start a blog post, since there isn't any simple intuition for why the Euler-Lagrange equations of motion would be true. I will hopefully have something more to say about Hamilton's principle of least action soon, at which point the circuit will be closed. As a reminder, the Euler-Lagrange equations:</p>
+
+          \[\frac{\partial L}{\partial q} = \frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}}\right)\]
+
+          <p>where \(L(q, \dot{q}, t)\) is the Lagrangian, and \(q\) are coordinates that describe the system, and \(\dot{q}\) the time derivatives of those coordinates. Most often, \(q\) are just the spatial coordinate \(x\) and \(\dot{q}\), the time derivatives, the spatial velocity, \(v\).</p>
+
+          <p>This means that our starting point is—along with the two assumptions above—that the Lagrangian is the generator<sup id="fnref2"><a href="#fn2">2</a></sup> of the physical laws of motion, through the Euler-Lagrange equations. A Lagrangian (along with initial conditions) thus uniquely defines the equations of motion for a system, and any properties of the equations of motion of a system will be encoded in that Lagrangian.</p>
+
+          <p>We know nothing else about what the Lagrangian for a general system ought to look like. We know neither of kinetic nor potential energy. In fact, the concept of energy is foreign to us. We most certainly have never heard of any Newton's laws. All we know is that there exists a function \(L\), the Lagrangian, and that it's the integrand within Hamilton's action. And we know that the Universe is symmetric in the ways described by assumptions I and II. What can we say about the Lagrangian?</p>
+
+          <h2>Constraining the Lagrangian</h2>
+
+          <p>We want to find the general form of \(L(x, v, t)\)<sup id="fnref3"><a href="#fn3">3</a></sup>. This is a daunting task, so let's first tackle a simpler problem, that of finding the function for a "free" body, that is, one which is not in interaction with anything else.</p>
+
+          <p><strong>Nota bene:</strong> <em>Throughout this derivation, we will assume that there is only one spatial dimension. This is to keep the algebra as clean as possible. However, one could relax this assumption by making \(x\) and \(v\) into vectors, and thus arrive at a more general result.</em></p>
+
+          <h3>The free Lagrangian</h3>
+
+          <p>Due to the spatial and temporal homogeneity of free space (assumption I), this means that there can be no spatial or temporal dependence of the function \(L\), when we're in free space. Otherwise, since the Lagrangian determines the equations of motion, we would get different equations of motion at different points in space and time<sup id="fnref4"><a href="#fn4">4</a></sup>. Hence:</p>
+
+          \[L(x, v, t) = L(v)\]
+
+          <p>Now, we apply assumption II, relativity. By this condition, the equations of motion should be unchanged in all inertial reference frames. For this to hold true generally, it means that the process of extremizing the action must not be changed by the Galilean boost into the other reference frame. This means that our state function can only change by a total time derivative (since this would at most add a constant to the action). We express this as:</p>
+
+          \[
+          \begin{aligned}
+          x' &= x - ut \\
+          v' &= v - u \\
+          t' &= t
+          \end{aligned}
+          \]
+
+          \[L'(x', v', t') = L(x, v, t) + \frac{dG(x, v, t; u)}{dt}\]
+
+          <p>Plugging in the fact that \(L\) is just a function of \(v\), and expanding the total time derivative of \(G\), we get</p>
+
+          \[L(v-u) - L(v) = v\frac{\partial G}{\partial x} + \dot{v}\frac{\partial G}{\partial v} + \frac{\partial G}{\partial t}\]
+
+          <p>LHS is only a function of \(v\), hence \(\frac{\partial G}{\partial v}\) must be zero, and thus \(G = G(x, t)\). Then, we observe that RHS is at most linear in \(v\), due to the \(v\frac{\partial G}{\partial x}\) term. Everything else is constant in \(v\), since \(G\) is not a function of \(v\). Thus, we get</p>
+
+          \[L(v-u) - L(v) = \alpha v + \beta\]
+
+          <p>Where \(\alpha\) and \(\beta\) must be constants, since LHS only depends on \(v\). This is a functional equation for \(L(v)\), whose general solution is the quadratic. Thus, we conclude that the free state function is</p>
+
+          \[L_{\text{free}}(v) = \alpha v^2 + \beta v + \gamma\]
+
+          <p>where the constant term \(\gamma\) is unimportant to the physics, since we only deal with derivative of the Lagrangian to determine the equations of motion.</p>
+
+          <h3>The general Lagrangian</h3>
+
+          <p>By the same argument as above, we find that the general Lagrangian \(L\) must also be at most quadratic in \(v\) (since \(G\) is still at most linear in \(v\)). This gives a general expression for \(L\) as</p>
+
+          \[L(x,v,t) = A(x,t)v^2 + B(x,t)v + C(x,t)\]
+
+          <p>To further constrain the state function, we will apply our relativity constraint again. We boost the state function into an inertial frame of relativity velocity \(u\), and demand that the state function change by only a total time derivative:</p>
+
+          \[L(x',v',t') - L(x,v,t) = \frac{dG(x, t)}{dt}\]
+
+          \[[A(x,t) - A(x',t')]v^2 + [B(x',t) - B(x,t)]v + C(x',t) - C(x,t) = v\frac{\partial G}{\partial x} + \frac{\partial G}{\partial t}\]
+
+          <p>The \(v^2\) dependence in LHS must be zero for all \(u\), hence \(A\) can't have any spatial dependence. The same argument goes for simple time translations, and hence \(A(x,t) = \text{const}\). Thus, we arrive at our final, most general expression for our state function, having applied our constraints to the fullest extent we have</p>
+
+          \[L = \alpha v^2 + B(x,t)v + C(x,t)\]
+
+          <p>In traditional physics, we identify (for a single-body Lagrangian) the constant \(\alpha\) as one half of the mass of the body, \(C(x,t)\) as the negative of the potential energy, and \(B(x,t)\) being a term that only comes up when dealing with magnetic fields, the details of which we won't linger on here.</p>
+
+          <h2>So what?</h2>
+
+          \[L = \alpha v^2 + B(x,t)v + C(x,t)\]
+
+          <p>This is the most general form of a Lagrangian that we can have, given our fairly minimal symmetry constraints at the start. It's worth noting that this is quite an exceptional amount of constraint on the Lagrangian. Before applying our conditions for certain symmetries, there was no limit to what the Lagrangian could look like. Exponentials, fraction, square roots, trigonometric functions. All of these were fair game. Turns out that we are, at least in \(v\), limited to a second-order polynomial. Of course, we're hiding some structure in our \(A\) and \(B\) functions, which currently could be arbitrary functions (although we will likely demand smoothness at some point down the line). I plan to dedicate a second post to the constraints that we can place on these functions, from further symmetry arguments.</p>
+
+          <p>And so, in the absence of magnetic fields, the Lagrangian becomes</p>
+
+          \[L = \alpha v^2 + C(x,t)\]
+
+          <p>where we usually identify \(\alpha\) and \(C\) with \(\frac{1}{2}m\) and negative \(V\) respectively, such that we get</p>
+
+          \[L = T - V\]
+
+          <p>where \(T = \frac{1}{2}mv^2\) is the kinetic energy and \(V\) the potential energy of the body.</p>
+
+          <p>Now, I want to be explicit about this last step that we did, to make sure it doesn't feel totally out of the blue. By identifying \(\alpha\) with \(\frac{1}{2}m\), I don't mean to skip an important step, where we had to <em>show</em> that \(\alpha\) is in fact equal to \(\frac{1}{2}m\). Rather, I think it is more prudent to think of this step as the <em>definition of mass.</em> Mass, like most fundamental physical things, doesn't actually have a very clear physical description. When you hold a heavy object in your hand, that heaviness you feel is the <em>weight</em> of that object (\(mg\), on Earth), not the mass of the object. While we measure ourselves in kilograms, this is in fact somewhat of a misnomer, since our scales all measure weight, not mass. While taught in school as an intuitive physical property, mass is in fact more abstract than most people realize. We identify it, here in the single-body Lagrangian, as the one factor in the expression which depends on that body and that body alone, regardless of reference frame. It is the only truly <em>intrinsic</em> property that a body can have. The fact that this happens to be proportional to what we feel as "heaviness" in an object on Earth is a consequence of <em>gravity</em>, which depends on the mass, but is not a property of mass itself. Mass <em>is</em> \(2\alpha\).<sup id="fnref5"><a href="#fn5">5</a></sup></p>
+
+          <p>The second part of this last step was identifying \(C(x,t)\) with \(-V(x,t)\), the negative of the potential energy. The obvious question here is, why the minus sign? Now, this one is actually just arbitrary, but is the cause of much confusion (to myself). A most common objection to the Lagrangian voiced by first-year university students (again, myself included) is: why the minus sign in front of the potential energy? Most students will, by the time they enter university, have deeply internalized that total energy \(E = T + V\), is a profound and important quantity in physics. Safe to say, the Lagrangian would cause much less confusion if it happened to equal \(T + V\), the energy. "I've seen that before, only makes sense that that's what it would be!", students would say. But this would be poor judgment. The problem, rather, is one of selective skepticism.</p>
+
+          <p>Most people are taught the definition of energy (and the fact of its conservation) in middle school, where it is written up on the board and stated as fact. Few people think to question this definition (I, perhaps rather embarrassingly, certainly didn't). Why the \(v^2\)? Why the \(+V\) instead of the \(-V\)? And even those who do question, likely give up after a short while and submit to internalizing the definition of energy as fact, and over time come to think of it as a deeply physical truth. But there is nothing intuitively physical about energy! Sure, it certainly is physical, in the sense that we use it in physics (same as mass). But can you tell me what it looks like? Can you tell me what it feels like? When I first learned Lagrangian mechanics, I used to love asking people for their "physical intuition for the Lagrangian", which is a fair, but difficult question. But never once did I stop to ask anyone what the physical intuition of energy is, an equally hard, but fair, question! Students enter their first analytical mechanics course with an unjustified acceptance of energy, and begin harassing its close cousin, the Lagrangian, as if it all of a sudden now has to prove itself. We could just as well have flipped signs on our definition of potential energy (which wouldn't be particularly unintuitive, because again, the intuition for potential energy isn't quite as deep or rigid as we might think), and thus defined energy as \(T - V\), and the Lagrangian and \(T + V\). Would you be happier with this?</p>
+
+          <p>So, the real question becomes, well why is energy different from the Lagrangian by a sign change on the potential energy, \(V\)? My best answer to that is that the sign change occurs as you apply Noether's theorem to find the energy as the conserved quantity arising from time translational symmetry, and that there isn't any obvious physical intuition for why the signs should differ. It's "just" an algebraic remnant, the "physical understanding" of which won't be particularly useful. But this is of course an unsatisfying answer, and I would be happy to hear better ones! But if you do go looking for better ones, remember to be fair, and if I may say, <em>symmetric</em>, in your scrutiny. While you may find a physical intuition for why the Lagrangian differs from the energy by the flip of a sign, that doesn't make either object privileged in terms of "intuition" above the other.</p>
+
+          <p><em>I am grateful to <a href="https://yonatan.gideoni.com/">Yonatan Gideoni</a>, <a href="https://mkodama.org/">Miles Kodama</a>, <a href="https://selvaradov.net/">Rohan Selva-Radov</a>, &amp; <a href="https://vvvincent.me/">Vincent Cheng</a> for their helpful comments and discussion. All mistakes remain my own.</em></p>
+
+          <hr>
+
+          <p id="fn1"><sup>1</sup> And in fact, we can make them first order in time by expanding our state vector to include the velocity, but this is a bit of a trick. <a href="#fnref1">↩</a></p>
+
+          <p id="fn2"><sup>2</sup> In the general sense, not in the group theoretical sense. <a href="#fnref2">↩</a></p>
+
+          <p id="fn3"><sup>3</sup> The Lagrangian is a function of \(x\), \(v\), \(t\) only because of our first assumption, namely that these are the only free parameters, from which the equations of motion are determined. <a href="#fnref3">↩</a></p>
+
+          <p id="fn4"><sup>4</sup> I will often make high-level arguments like this. To be rigorous here, you would want to show this explicitly, but I will generally favour intuition-based arguments like these throughout, while trying my best to not sweep any important physics under the rug. <a href="#fnref4">↩</a></p>
+
+          <p id="fn5"><sup>5</sup> Where the factor of two is a numerical convenience. Of course, in actuality, that's not the case, and mass is defined with the \(\frac{1}{2}\) factor for other reasons. However, it turns out that the factor 2 here is actually quite sensible, as it makes a lot of other equations simpler. \(E = 2mc^2\) just wouldn't hit the same way. <a href="#fnref5">↩</a></p>
+
+        </div>
+  
+       
+        
+        
+
+    </section>
+    
+
+    
+    
+  </body>
+ 
+</html>
